@@ -5,6 +5,6 @@ from django.shortcuts import render
 def index(request):
     template = "core/index.html"
     context = {
-        "deneme" : "deneme"
+        
     }
     return render(request, template, context)

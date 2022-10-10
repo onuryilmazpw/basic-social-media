@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'userprofile/css/style.css' %}">
+{% endblock %}
+
+{% block title %} Profil {% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <h1>Profil Sayfası</h1>
+                <hr>
+                <p>Burası Profil Sayfası</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static 'userprofile/js/script.js' %}"></script>
+{% endblock %}
