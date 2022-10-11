@@ -6,6 +6,10 @@ basic_social_media --> Main directory
 
 core --> Homepage app
 
+superuser = admin
+
+all user password = admin123
+
 ## versions
 python version --> 3.10.4
 
