@@ -28,7 +28,8 @@ def login_request(request):
         return render(request, template)
 
 def register_request(request):
-    pass
+    return render(request, "account/register.html")
 
 def logout_request(request):
-    pass
+    logout(request)
+    return redirect("home")
