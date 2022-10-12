@@ -11,13 +11,14 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                <h1>Profil Sayfası</h1>
+                <h1>Profil Düzenle</h1>
                 <hr>
                 {% if user.is_authenticated %}
-                    {{user.get_full_name}} <p>Şuan sana özel profil sayfan gösteriliyor</p>
-                    <a class="btn btn-primary" href="{% url 'profile_edit' %}" role="button">Profil Düzenle</a>
+                    {{user.get_full_name}} <p>Şuan sana özel profil düzenleme sayfan gösteriliyor</p>
+                    <a class="btn btn-success" href="" role="button">Onayla</a>
+                    <a class="btn btn-danger" href="{% url 'profile' %}" role="button">İptal</a>
                 {% else %}
-                    <p>Profil sayfanızı görmek için lütfen giriş yapın.</p>
+                    <p>Profilinizi düzenlemek için lütfen giriş yapın.</p>
                 {% endif %}
             </div>
         </div>

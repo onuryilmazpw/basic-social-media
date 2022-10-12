@@ -8,3 +8,10 @@ def user_profile(request):
         
     }
     return render(request, template, context)
+
+def profile_edit(request):
+    template = "userprofile/profile-edit.html"
+    context = {
+        
+    }
+    return render(request, template, context)
