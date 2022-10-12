@@ -13,7 +13,11 @@
             <div class="col-12">
                 <h1>Anasayfa</h1>
                 <hr>
-                <p>Burası Anasayfa</p>
+                {% if user.is_authenticated %}
+                    {{user.get_full_name}} <p>Şuan sana özel sayfa gösteriliyor</p>
+                {% else %}
+                    <p>Misafir Anasayfası</p>
+                {% endif %}
             </div>
         </div>
     </div>

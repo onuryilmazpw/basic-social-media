@@ -14,17 +14,17 @@
         <ul class="navbar-nav ms-auto">
             {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    <a class="nav-link" href="{% url 'logout' %}">Çıkış Yap</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Welcome, {{ user.get_full_name|title }} </a>
+                    <a class="nav-link" href="">Hoşgeldin, {{ user.get_full_name|title }} </a>
                 </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link" href="{% url 'login' %}">Giriş Yap</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    <a class="nav-link" href="{% url 'register' %}">Kayıt Ol</a>
                 </li>
             {% endif %}
 
