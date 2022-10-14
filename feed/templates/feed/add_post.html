@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'feed/css/style.css' %}">
+{% endblock %}
+
+{% block title %} Gönderi Ekle {% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <h1>Gönderi Ekle</h1>
+                <hr>
+                {% if user.is_authenticated %}
+                    {{user.get_full_name}} <p>Şuan sana özel sayfa gösteriliyor</p>
+                {% else %}
+                    <p>Gönderi eklemek için lütfen giriş yapın.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static 'feed/js/script.js' %}"></script>
+{% endblock %}

@@ -16,6 +16,7 @@
                 {% if user.is_authenticated %}
                     {{user.get_full_name}} <p>Şuan sana özel profil sayfan gösteriliyor</p>
                     <a class="btn btn-primary" href="{% url 'profile_edit' %}" role="button">Profil Düzenle</a>
+                    <a class="btn btn-primary" href="{% url 'add_post' %}" role="button">Gönderi Oluştur</a>
                 {% else %}
                     <p>Profil sayfanızı görmek için lütfen giriş yapın.</p>
                 {% endif %}
