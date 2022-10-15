@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'friends/css/style.css' %}">
+{% endblock %}
+
+{% block title %} Arkadaşlar {% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <h1>Arkadaş Listesi</h1>
+                <hr>
+                {% if user.is_authenticated %}
+                    {{user.get_full_name}} kişisinin arkadaşları görüntüleniyor.
+                {% else %}
+                    <p>Arkadaşlarınızı görmek için lütfen giriş yapın.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static 'friends/js/script.js' %}"></script>
+{% endblock %}
