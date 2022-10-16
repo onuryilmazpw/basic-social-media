@@ -21,6 +21,16 @@
                     <form action="{% url 'profile_edit' %}" method="POST">
 
                         {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Kullanıcı Adı</label>
+                            <input type="text" class="form-control" name="username" value="{{ username }}">
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-posta</label>
+                            <input type="email" class="form-control" name="email" value="{{ email }}">
+                        </div>
 
                         <div class="mb-3">
                             <label for="firstname" class="form-label">İsim</label>
