@@ -14,7 +14,24 @@
                 <h1>Gönderi Ekle</h1>
                 <hr>
                 {% if user.is_authenticated %}
-                    {{user.get_full_name}} <p>Şuan sana özel sayfa gösteriliyor</p>
+                    <form action="{% url 'add_post' %}" method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Gönderi Başlığı</label>
+                            <input type="text" class="form-control" name="title" value="{{ title }}">
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Gönderi İçeriği</label>
+                            <textarea type="textarea" rows="5" class="form-control" name="post_text">{{ post_text }}</textarea>
+                        </div>
+
+                        <input class="btn btn-success" type="submit" value="Gönderi Ekle" >
+                        <a class="btn btn-danger" href="{% url 'profile' %}" role="button">İptal</a>
+
+                    </form>
+
                 {% else %}
                     <p>Gönderi eklemek için lütfen giriş yapın.</p>
                 {% endif %}
