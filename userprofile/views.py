@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from feed.models import UserPost
 
 # Create your views here.
 
 def user_profile(request):
     template = "userprofile/profile.html"
     context = {
-        
+        "all_post" : UserPost.objects.all()
     }
     return render(request, template, context)
 
