@@ -6,7 +6,7 @@ from feed.models import UserPost
 def user_profile(request):
     template = "userprofile/profile.html"
     context = {
-        "all_post" : UserPost.objects.all()
+        "all_post" : UserPost.objects.filter(owner=request.user)
     }
     return render(request, template, context)
 
