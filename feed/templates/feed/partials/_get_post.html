@@ -1,0 +1,14 @@
+{% if all_post|length > 0 %}
+    {% for post in all_post%}
+    <div class="card">
+        <div class="card-header">
+            {{post.owner.username}} paylaştı. {{post.post_date}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.post_text}}</p>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+{% endif %}
