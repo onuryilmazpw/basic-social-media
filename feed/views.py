@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import UserPost
 
 # Create your views here.
@@ -18,6 +18,7 @@ def add_post(request):
 
         context["post_text"] = post_text
         context["title"] = title
+        return redirect("profile")
 
 
     return render(request, template, context)
