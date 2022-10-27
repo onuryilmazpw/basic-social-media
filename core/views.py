@@ -6,6 +6,6 @@ from feed.models import UserPost
 def index(request):
     template = "core/index.html"
     context = {
-        "all_post" : UserPost.objects.all()
+        "all_post" : UserPost.objects.all().order_by('-post_date')
     }
     return render(request, template, context)
