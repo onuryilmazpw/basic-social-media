@@ -10,8 +10,8 @@ def user_profile(request):
     }
     return render(request, template, context)
 
-def profile_edit(request):
-    template = "userprofile/profile-edit.html"
+def account_edit(request):
+    template = "userprofile/account_edit.html"
     user = request.user
     context = {
         "bilgi" : "Bilgilerde değişiklik yok!"
