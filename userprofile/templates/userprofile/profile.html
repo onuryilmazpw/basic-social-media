@@ -16,6 +16,7 @@
                 {% if user.is_authenticated %}
                     {{user.get_full_name}} <p>Şuan sana özel profil sayfan gösteriliyor</p>
                     <a class="btn btn-primary" href="{% url 'account_edit' %}" role="button">Hesap Bilgilerini Düzenle</a>
+                    <a class="btn btn-primary" href="{% url 'profile_edit' %}" role="button">Profil Bilgilerini Düzenle</a>
                     <a class="btn btn-primary" href="{% url 'add_post' %}" role="button">Gönderi Oluştur</a>
                     <a class="btn btn-primary" href="{% url 'friends_list' %}" role="button">Arkadaşlarım</a>
                     <hr>

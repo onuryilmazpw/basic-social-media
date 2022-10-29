@@ -10,6 +10,13 @@ def user_profile(request):
     }
     return render(request, template, context)
 
+def profile_edit(request):
+    template = "userprofile/profile_edit.html"
+    context = {
+        
+    }
+    return render(request, template, context)
+
 def account_edit(request):
     template = "userprofile/account_edit.html"
     user = request.user
