@@ -13,7 +13,6 @@
             <div class="col-12">
                 <h1>Profil Sayfası</h1>
                 <hr>
-                {% if user.is_authenticated %}
                     {{user.get_full_name}} <p>Şuan sana özel profil sayfan gösteriliyor</p>
                     <a class="btn btn-primary" href="{% url 'account_edit' %}" role="button">Hesap Bilgilerini Düzenle</a>
                     <a class="btn btn-primary" href="{% url 'profile_edit' %}" role="button">Profil Bilgilerini Düzenle</a>
@@ -21,9 +20,6 @@
                     <a class="btn btn-primary" href="{% url 'friends_list' %}" role="button">Arkadaşlarım</a>
                     <hr>
                     {% include 'feed/partials/_get_post.html' %}
-                {% else %}
-                    <p>Profil sayfanızı görmek için lütfen giriş yapın.</p>
-                {% endif %}
             </div>
         </div>
     </div>
