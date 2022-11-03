@@ -13,13 +13,7 @@
             <div class="col-12">
                 <h1>Anasayfa</h1>
                 <hr>
-                {% if user.is_authenticated %}
-                    {{user.get_full_name}} <p>Şuan sana özel sayfa gösteriliyor</p>
-                    <hr>
-                    {% include 'feed/partials/_get_post.html' %}
-                {% else %}
-                    <p>Misafir Anasayfası</p>
-                {% endif %}
+                {% include 'feed/partials/_get_post.html' %}
             </div>
         </div>
     </div>
