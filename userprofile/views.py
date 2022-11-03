@@ -6,7 +6,7 @@ from feed.models import UserPost
 def user_profile(request):
     template = "userprofile/profile.html"
     if not request.user.is_authenticated:
-        return redirect("home")
+        return redirect("login")
 
     context = {
         "all_post" : UserPost.objects.filter(owner=request.user).order_by('-post_date')
