@@ -13,6 +13,17 @@
             <div class="col-12">
                 <h1>Anasayfa</h1>
                 <hr>
+                <form action="" method="GET">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" class="form-control" name="q">
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">Ara</button>
+                        </div>
+                    </div>  
+                </form>
+                <hr>
                 {% include 'feed/partials/_get_post.html' %}
             </div>
         </div>
