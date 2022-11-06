@@ -8,8 +8,15 @@ def user_profile(request):
     if not request.user.is_authenticated:
         return redirect("login")
 
+    if 'q' in request.GET and request.GET.get('q'):
+        q = request.GET['q']
+        all_post = UserPost.objects.filter(owner=request.user).filter(title__contains=q).order_by('-post_date')
+    else:
+        all_post = UserPost.objects.filter(owner=request.user).order_by('-post_date')
+
+
     context = {
-        "all_post" : UserPost.objects.filter(owner=request.user).order_by('-post_date')
+        "all_post" : all_post
     }
     return render(request, template, context)
 
