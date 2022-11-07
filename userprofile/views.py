@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
 from feed.models import UserPost
 
 # Create your views here.
@@ -10,7 +11,10 @@ def user_profile(request):
 
     if 'q' in request.GET and request.GET.get('q'):
         q = request.GET['q']
-        all_post = UserPost.objects.filter(owner=request.user).filter(title__contains=q).order_by('-post_date')
+        all_post = UserPost.objects.filter(
+            Q(owner=request.user) & 
+            (Q(title__contains=q) | Q(post_text__contains=q))
+        ).order_by('-post_date')
     else:
         all_post = UserPost.objects.filter(owner=request.user).order_by('-post_date')
 
