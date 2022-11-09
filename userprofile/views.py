@@ -1,13 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from feed.models import UserPost
 
 # Create your views here.
 
+@login_required(login_url='/login')
 def user_profile(request):
     template = "userprofile/profile.html"
-    if not request.user.is_authenticated:
-        return redirect("login")
 
     if 'q' in request.GET and request.GET.get('q'):
         q = request.GET['q']
@@ -17,7 +17,6 @@ def user_profile(request):
         ).order_by('-post_date')
     else:
         all_post = UserPost.objects.filter(owner=request.user).order_by('-post_date')
-
 
     context = {
         "all_post" : all_post
