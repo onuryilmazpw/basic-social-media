@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
 
 # Create your views here.
 
@@ -18,7 +18,11 @@ def login_request(request):
 
         if user is not None:
             login(request, user)
-            return redirect("home")
+            nextUrl = request.GET.get('next')
+            if nextUrl is None:
+                return redirect('home')
+            else:
+                return redirect(nextUrl)
         else:
             context = {
                 "error": "Kullanıcı adı veya parola yanlış"
