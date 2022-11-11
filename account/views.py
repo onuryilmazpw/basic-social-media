@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
 # Create your views here.
@@ -76,6 +77,7 @@ def logout_request(request):
     logout(request)
     return redirect("home")
 
+@login_required(login_url='/login')
 def account_edit(request):
     template = "account/account_edit.html"
     user = request.user
