@@ -13,28 +13,23 @@
             <div class="col-12">
                 <h1>Gönderi Ekle</h1>
                 <hr>
-                {% if user.is_authenticated %}
-                    <form action="{% url 'add_post' %}" method="POST">
-                        {% csrf_token %}
+                <form action="{% url 'add_post' %}" method="POST">
+                    {% csrf_token %}
 
-                        {% for field in form %}
-                            <div class="mb-3 {% if field.errors %} invalid {% endif %}">
-                                <label class="form-label" for="{{ field.id_for_label}}">{{ field.label }}</label>
-                                {% if field.errors %}
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ field.errors }}
-                                    </div>
-                                {% endif %}
-                                {{ field }}
-                            </div>
-                        {% endfor %}
-                        <input class="btn btn-success" type="submit" value="Gönderi Ekle">
-                        <a class="btn btn-danger" href="{% url 'profile' %}" role="button">İptal</a>
-                    </form>
-
-                {% else %}
-                    <p>Gönderi eklemek için lütfen giriş yapın.</p>
-                {% endif %}
+                    {% for field in form %}
+                        <div class="mb-3 {% if field.errors %} invalid {% endif %}">
+                            <label class="form-label" for="{{ field.id_for_label}}">{{ field.label }}</label>
+                            {% if field.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                    <input class="btn btn-success" type="submit" value="Gönderi Ekle">
+                    <a class="btn btn-danger" href="{% url 'profile' %}" role="button">İptal</a>
+                </form>
             </div>
         </div>
     </div>
