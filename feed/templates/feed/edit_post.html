@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="{% static 'feed/css/style.css' %}">
 {% endblock %}
 
-{% block title %} Gönderi Ekle {% endblock %}
+{% block title %} Gönderi Düzenle {% endblock %}
 
 {% block content %}
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                <h1>Gönderi Ekle</h1>
+                <h1>Gönderi Düzenle</h1>
                 <hr>
                 <form action="." method="POST">
                     {% csrf_token %}
@@ -27,7 +27,7 @@
                             {{ field }}
                         </div>
                     {% endfor %}
-                    <input class="btn btn-success" type="submit" value="Gönderi Ekle">
+                    <input class="btn btn-success" type="submit" value="Gönderi Düzenle">
                     <a class="btn btn-danger" href="{% url 'profile' %}" role="button">İptal</a>
                 </form>
             </div>
