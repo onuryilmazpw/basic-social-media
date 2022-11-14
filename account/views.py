@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
+from account.forms import LoginUserForm
 
 # Create your views here.
 
@@ -12,25 +13,29 @@ def login_request(request):
     template = "account/login.html"
 
     if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
+        form = LoginUserForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(request, username=username,password=password)
 
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            nextUrl = request.GET.get('next')
-            if nextUrl is None:
-                return redirect('home')
+            if user is not None:
+                login(request, user)
+                nextUrl = request.GET.get('next')
+                if nextUrl is None:
+                    return redirect('home')
+                else:
+                    return redirect(nextUrl)
             else:
-                return redirect(nextUrl)
+                context= {'form':form}
+                return render(request, template, context)
         else:
-            context = {
-                "error": "Kullanıcı adı veya parola yanlış"
-            }
+            context= {'form':form}
             return render(request, template, context)
     else:
-        return render(request, template)
+        form = LoginUserForm()
+        context= {'form':form}
+        return render(request, template, context)
 
 def register_request(request):
     if request.user.is_authenticated:

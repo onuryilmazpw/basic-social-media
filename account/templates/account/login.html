@@ -12,31 +12,29 @@
         <div class="col">
             <h1>Giriş Yap</h1>
             <hr>
-
             <form method="POST">
-
                 {% csrf_token %}
 
-                {% if error %}
+                {% for error in form.non_field_errors %}
                     <div class="alert alert-danger">
                         {{error}}
                     </div>
-                {% endif %}
+                {% endfor %}
 
-                <div class="mb-3">
-                    <label for="username" class="form-label">Kullanıcı Adı</label>
-                    <input type="text" class="form-control" name="username">
-                </div>
-
-                <div class="mb-3">
-                    <label for="password" class="form-label">Parola</label>
-                    <input type="password" class="form-control" name="password">
-                </div>
+                {% for field in form %}
+                    <div class="mb-3 {% if field.errors %} invalid {% endif %}">
+                        {% if field.errors %}
+                            <div class="alert alert-danger pb-0">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                {% endfor %}
 
                 <input type="submit" value="Giriş Yap" class="btn btn-primary">
-
             </form>
-
         </div>
     </div>
 {% endblock %}
