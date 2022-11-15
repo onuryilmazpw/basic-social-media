@@ -13,41 +13,31 @@
             <div class="col-12">
                 <h1>Hesap Bilgileri Düzenle</h1>
                 <hr>
-                {% if user.is_authenticated %}
-                    <div class="alert alert-warning" role="alert">
-                        {{bilgi}}
-                      </div>
-
-                    <form action="{% url 'account_edit' %}" method="POST">
-
-                        {% csrf_token %}
-                        
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Kullanıcı Adı</label>
-                            <input type="text" class="form-control" name="username" value="{{ username }}">
-                        </div>
-        
-                        <div class="mb-3">
-                            <label for="email" class="form-label">E-posta</label>
-                            <input type="email" class="form-control" name="email" value="{{ email }}">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="firstname" class="form-label">İsim</label>
-                            <input type="text" class="form-control" name="firstname" value="{{ firstname }}">
-                        </div>
-        
-                        <div class="mb-3">
-                            <label for="lastname" class="form-label">Soyisim</label>
-                            <input type="text" class="form-control" name="lastname" value="{{ lastname }}">
-                        </div>
-
-                        <input class="btn btn-success" type="submit" value="Kaydet" >
-                        <a class="btn btn-danger" href="{% url 'profile' %}" role="button">İptal</a>
-                    </form>
-                {% else %}
-                    <p>Profilinizi düzenlemek için lütfen giriş yapın.</p>
-                {% endif %}
+                <div class="alert alert-warning" role="alert">
+                    {{bilgi}}
+                </div>
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Kullanıcı Adı</label>
+                        <input type="text" class="form-control" name="username" value="{{ username }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-posta</label>
+                        <input type="email" class="form-control" name="email" value="{{ email }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="firstname" class="form-label">İsim</label>
+                        <input type="text" class="form-control" name="firstname" value="{{ firstname }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastname" class="form-label">Soyisim</label>
+                        <input type="text" class="form-control" name="lastname" value="{{ lastname }}">
+                    </div>
+                    <input class="btn btn-success" type="submit" value="Kaydet" >
+                    <a class="btn btn-danger" href="{% url 'profile' %}" role="button">İptal</a>
+                </form>
             </div>
         </div>
     </div>

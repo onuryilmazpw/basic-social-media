@@ -13,11 +13,7 @@
             <div class="col-12">
                 <h1>Arkadaş Listesi</h1>
                 <hr>
-                {% if user.is_authenticated %}
-                    {{user.get_full_name}} kişisinin arkadaşları görüntüleniyor.
-                {% else %}
-                    <p>Arkadaşlarınızı görmek için lütfen giriş yapın.</p>
-                {% endif %}
+                {{user.get_full_name}} kişisinin arkadaşları görüntüleniyor.
             </div>
         </div>
     </div>

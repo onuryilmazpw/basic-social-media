@@ -25,4 +25,4 @@ urlpatterns = [
     path("", include('account.urls')),
     path("", include('feed.urls')),
     path("", include('friends.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
