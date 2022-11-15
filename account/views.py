@@ -82,7 +82,7 @@ def logout_request(request):
     logout(request)
     return redirect("home")
 
-@login_required(login_url='/login')
+@login_required(login_url='login')
 def account_edit(request):
     template = "account/account_edit.html"
     user = request.user

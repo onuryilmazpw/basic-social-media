@@ -5,7 +5,7 @@ from feed.models import UserPost
 
 # Create your views here.
 
-@login_required(login_url='/login')
+@login_required(login_url='login')
 def user_profile(request):
     template = "userprofile/profile.html"
 
@@ -23,7 +23,7 @@ def user_profile(request):
     }
     return render(request, template, context)
 
-@login_required(login_url='/login')
+@login_required(login_url='login')
 def profile_edit(request):
     template = "userprofile/profile_edit.html"
     context = {
