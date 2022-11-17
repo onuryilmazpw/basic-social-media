@@ -25,7 +25,7 @@ def add_post(request):
 
 @login_required(login_url='login')
 def add_post(request, id):
-    template = "feed/add_post.html"
+    template = "feed/edit_post.html"
     context = {
     }
     return render(request, template, context)
