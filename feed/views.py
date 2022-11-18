@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from .models import UserPost
 from .forms import UserPostForm
+
 
 # Create your views here.
 
@@ -24,8 +26,10 @@ def add_post(request):
     return render(request, template, context)
 
 @login_required(login_url='login')
-def add_post(request, id):
+def edit_post(request, id):
     template = "feed/edit_post.html"
+    post = UserPost.objects.filter(pk=id)
     context = {
+        "all_post" : post
     }
     return render(request, template, context)

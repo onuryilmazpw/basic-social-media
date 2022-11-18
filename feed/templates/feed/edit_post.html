@@ -13,6 +13,8 @@
             <div class="col-12">
                 <h1>Gönderi Düzenle</h1>
                 <hr>
+                {% include 'feed/partials/_get_post.html' %}
+                <hr>
                 <form action="" method="POST">
                     {% csrf_token %}
 
