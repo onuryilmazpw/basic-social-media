@@ -4,11 +4,12 @@ The project I developed while learning Django
 ## system
 basic_social_media --> Main directory
 
-core --> Homepage app
-
-superuser = admin
-
-all user password = admin123
+## apps
+account app
+core app
+feed app
+friends app
+userprofile app
 
 ## versions
 python version --> 3.10.4
