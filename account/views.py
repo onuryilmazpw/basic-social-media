@@ -1,10 +1,9 @@
+from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render
+from django.contrib import messages
 from account.forms import LoginUserForm
-
-# Create your views here.
 
 def login_request(request):
     if request.user.is_authenticated:
@@ -21,6 +20,7 @@ def login_request(request):
 
             if user is not None:
                 login(request, user)
+                messages.success(request, "Başarılı bir şekilde giriş yaptınız.")
                 nextUrl = request.GET.get('next')
                 if nextUrl is None:
                     return redirect('home')
