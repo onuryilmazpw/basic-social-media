@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import UserPost
 from .forms import UserPostForm
 
@@ -17,6 +18,7 @@ def add_post(request):
             post = form.save(commit=False)
             post.owner = user
             post.save()
+            messages.success(request, "Yeni gönderi oluşturuldu.")
             return redirect("profile")
     else:
         form = UserPostForm()
