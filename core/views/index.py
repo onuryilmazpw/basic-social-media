@@ -2,8 +2,6 @@ from django.shortcuts import render
 from django.db.models import Q
 from feed.models import UserPost
 
-# Create your views here.
-
 def index(request):
     template = "core/index.html"
 
