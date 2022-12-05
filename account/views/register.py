@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.models import User
+from account.models import CustomUserModel
 
 def register_request(request):
     if request.user.is_authenticated:
@@ -25,14 +25,14 @@ def register_request(request):
         if password != repassword:
             context["error"] = "Parola Eşleşmiyor"
             return render(request, template, context)
-        elif User.objects.filter(username=username).exists():
+        elif CustomUserModel.objects.filter(username=username).exists():
             context["error"] = "Bu kullanıcı adı daha önce alınmış."
             return render(request, template, context)
-        elif User.objects.filter(email=email).exists():
+        elif CustomUserModel.objects.filter(email=email).exists():
             context["error"] = "Bu e-posta başka bir üyeşiğe ait."
             return render(request, template, context)
         else:
-            user = User.objects.create_user(username=username,
+            user = CustomUserModel.objects.create_user(username=username,
                                             email=email, 
                                             first_name=firstname,
                                             last_name=lastname,
